@@ -1,185 +1,214 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+<html lang="en" class="scroll-smooth overflow-x-hidden">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hasil Bath Exclusive | Product Showcase</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#040912',
+                        secondary: '#0B192C',
+                        button: '#000000',
+                        accent: '#6EACDA',
+                        'secondary-text': '#E2E2B6',
+                        highlight: '#AF9B7F',
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        montserrat: ['Montserrat', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700;800&family=Montserrat:wght@300;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&family=Montserrat:wght@300;600;700;800&display=swap" rel="stylesheet">
     <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>💧</text></svg>">
     <style>
+        html, body {
+            max-width: 100%;
+            overflow-x: hidden;
+        }
         body {
-            font-family: 'Inter', sans-serif;
-            background-color: var(--primary-bg);
+            background-color: #040912;
             background-image: url('https://www.transparenttextures.com/patterns/dark-matter.png');
         }
-        .font-montserrat {
-            font-family: 'Montserrat', sans-serif;
+        .shadow-glow {
+            box-shadow: 0 0 20px rgba(110, 172, 218, 0.35);
         }
-        :root {
-            --primary-bg: #040912; /* New Deep Navy */
-            --secondary-bg: #0B192C;
-            --button-bg: #000000; /* Black for buttons/inputs */
-            --accent-color: #6EACDA;
-            --secondary-text: #E2E2B6;
-            --highlight-color: #AF9B7F; /* Muted Gold */
-        }
-        .bg-primary { background-color: var(--primary-bg); }
-        .bg-secondary { background-color: var(--secondary-bg); }
-        .bg-button { background-color: var(--button-bg); }
-        .text-accent { color: var(--accent-color); }
-        .text-secondary-text { color: var(--secondary-text); }
-        .text-highlight { color: var(--highlight-color); }
-        .border-accent { border-color: var(--accent-color); }
-        .border-highlight { border-color: var(--highlight-color); }
-        .shadow-glow { box-shadow: 0 0 15px rgba(110, 172, 218, 0.3); }
-        .ring-accent { --tw-ring-color: var(--accent-color); }
         .hero-gradient {
-            background-image: linear-gradient(160deg, rgba(11, 25, 44, 0.7), rgba(0, 0, 0, 0.8)), url('HSL.jpg');
+            background-image: linear-gradient(160deg, rgba(11, 25, 44, 0.8), rgba(4, 9, 18, 0.95)), url('HSL.jpg');
             background-size: cover;
-            background-position: upper;
+            background-position: center;
         }
         .textured-bg {
             background-image: url('texture.jpg');
+            background-size: cover;
         }
         .fade-in-section {
             opacity: 0;
-            transform: translateY(20px);
+            transform: translateY(16px);
             transition: opacity 0.6s ease-out, transform 0.6s ease-out;
         }
         .fade-in-section.is-visible {
             opacity: 1;
             transform: translateY(0);
         }
-        .aspect-\[4\/5\] {
-            aspect-ratio: 4 / 5;
-        }
+        .no-scrollbar::-webkit-scrollbar { display: none; }
+        .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
     </style>
 </head>
-<body class="bg-primary">
+<body class="bg-primary text-white font-sans antialiased selection:bg-accent selection:text-primary overflow-x-hidden">
 
     <!-- Header -->
-    <header class="bg-secondary sticky top-0 z-50 shadow-md">
-        <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
-            <a href="#" id="nav-home" class="font-montserrat text-2xl font-bold cursor-pointer text-secondary-text">Hasil Bath <span class="font-light text-highlight">Exclusive</span></a>
-            <div>
-                <a href="#" id="nav-products" class="text-secondary-text px-3 py-2 rounded-md text-sm font-medium hover:opacity-75 transition-opacity">Products</a>
-                <a href="#about" id="nav-about" class="text-secondary-text px-3 py-2 rounded-md text-sm font-medium hover:opacity-75 transition-opacity">About</a>
-                <a href="#contact" id="nav-contact" class="text-secondary-text px-3 py-2 rounded-md text-sm font-medium hover:opacity-75 transition-opacity">Contact</a>
+    <header class="bg-secondary/90 backdrop-blur-md sticky top-0 z-50 border-b border-white/10 shadow-lg w-full">
+        <nav class="container mx-auto px-4 sm:px-6 py-3 sm:py-4 flex justify-between items-center gap-2">
+            <a href="#" id="nav-home" class="font-montserrat text-base sm:text-xl md:text-2xl font-bold cursor-pointer text-secondary-text tracking-tight whitespace-nowrap">
+                Hasil Bath <span class="font-light text-highlight">Exclusive</span>
+            </a>
+            <div class="flex items-center space-x-1 sm:space-x-5">
+                <a href="#" id="nav-products" class="text-secondary-text px-2 py-1.5 rounded-md text-xs sm:text-sm font-medium hover:text-accent transition-colors">Products</a>
+                <a href="#about" id="nav-about" class="text-secondary-text px-2 py-1.5 rounded-md text-xs sm:text-sm font-medium hover:text-accent transition-colors">About</a>
+                <a href="#contact" id="nav-contact" class="text-secondary-text px-2 py-1.5 rounded-md text-xs sm:text-sm font-medium hover:text-accent transition-colors">Contact</a>
             </div>
         </nav>
     </header>
 
     <!-- Home Page View -->
-    <div id="home-view">
+    <div id="home-view" class="w-full">
         <!-- Hero Section -->
-        <section class="hero-gradient text-white text-center py-20 px-4">
-            <h1 class="font-montserrat text-4xl md:text-5xl font-bold mb-4 leading-tight">Exquisite Bathroom Fittings</h1>
-            <p class="text-lg md:text-xl text-secondary-text max-w-2xl mx-auto mb-8">Discover a range of innovative designs that combine quality, durability, and style.</p>
-            <a href="#series-showcase" class="bg-accent text-primary font-bold py-3 px-8 rounded-full hover:bg-sky-400 transition duration-300 shadow-lg shadow-glow ring-1 ring-accent">Explore Collections</a>
+        <section class="hero-gradient text-white text-center py-14 sm:py-20 md:py-28 px-4 border-b border-white/5">
+            <div class="max-w-3xl mx-auto">
+                <span class="inline-block py-1 px-3 rounded-full bg-accent/10 border border-accent/30 text-accent text-[10px] sm:text-xs font-semibold tracking-widest uppercase mb-3 sm:mb-4">
+                    Premium Sanitaryware &amp; Fittings
+                </span>
+                <h1 class="font-montserrat text-3xl sm:text-4xl md:text-6xl font-extrabold mb-4 sm:mb-6 leading-tight tracking-tight">
+                    Exquisite Bathroom Fittings
+                </h1>
+                <p class="text-base sm:text-lg md:text-xl text-secondary-text/90 max-w-2xl mx-auto mb-8 sm:mb-10 font-light px-2">
+                    Discover a range of innovative designs that combine quality, durability, and timeless style.
+                </p>
+                <div class="flex flex-col sm:flex-row justify-center items-center gap-3 sm:gap-4 px-4">
+                    <a href="#series-showcase" class="w-full sm:w-auto bg-accent text-primary font-bold py-3 px-7 rounded-full hover:bg-sky-300 transition duration-300 shadow-glow text-sm sm:text-base">
+                        Explore Collections
+                    </a>
+                    <button id="hero-all-products" class="w-full sm:w-auto bg-white/5 border border-white/20 text-white font-semibold py-3 px-7 rounded-full hover:bg-white/10 transition duration-300 text-sm sm:text-base">
+                        View All Products
+                    </button>
+                </div>
+            </div>
         </section>
 
         <!-- Main Content -->
-        <main class="container mx-auto px-6 lg:px-16 py-12">
+        <main class="container mx-auto px-4 sm:px-6 lg:px-16 py-8 sm:py-12">
 
             <!-- Experience Section -->
-            <section id="experience" class="my-16 text-center fade-in-section">
-                <div class="max-w-5xl mx-auto grid grid-cols-1 sm:grid-cols-3 gap-8">
-                    <div class="bg-button p-8 rounded-lg shadow-xl textured-bg">
-                        <h3 class="text-5xl font-extrabold text-white mb-2">15+</h3>
-                        <p class="text-secondary-text tracking-wider">Years of Experience</p>
+            <section id="experience" class="my-8 sm:my-12 text-center fade-in-section">
+                <div class="max-w-5xl mx-auto grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-6">
+                    <div class="bg-secondary/60 border border-white/10 p-6 sm:p-8 rounded-xl shadow-xl textured-bg">
+                        <h3 class="text-4xl sm:text-5xl font-extrabold text-white mb-1 sm:mb-2 font-montserrat">15+</h3>
+                        <p class="text-secondary-text text-xs sm:text-sm uppercase tracking-widest">Years of Experience</p>
                     </div>
-                    <div class="bg-button p-8 rounded-lg shadow-xl textured-bg">
-                        <h3 class="text-5xl font-extrabold text-white mb-2">100%</h3>
-                        <p class="text-secondary-text tracking-wider">Quality Tested Products</p>
+                    <div class="bg-secondary/60 border border-white/10 p-6 sm:p-8 rounded-xl shadow-xl textured-bg">
+                        <h3 class="text-4xl sm:text-5xl font-extrabold text-white mb-1 sm:mb-2 font-montserrat">100%</h3>
+                        <p class="text-secondary-text text-xs sm:text-sm uppercase tracking-widest">Quality Tested Products</p>
                     </div>
-                    <div class="bg-button p-8 rounded-lg shadow-xl textured-bg">
-                        <h3 class="text-5xl font-extrabold text-highlight mb-2">5 ★</h3>
-                        <p class="text-secondary-text tracking-wider">Customer Rating</p>
+                    <div class="bg-secondary/60 border border-white/10 p-6 sm:p-8 rounded-xl shadow-xl textured-bg">
+                        <h3 class="text-4xl sm:text-5xl font-extrabold text-highlight mb-1 sm:mb-2 font-montserrat">5 ★</h3>
+                        <p class="text-secondary-text text-xs sm:text-sm uppercase tracking-widest">Customer Rating</p>
                     </div>
                 </div>
             </section>
 
             <!-- About Us Section -->
-            <section id="about" class="my-16 fade-in-section">
-                <h2 class="text-4xl font-bold text-center mb-4 text-white">Our Commitment to Quality</h2>
-                 <div class="max-w-3xl mx-auto bg-button p-8 rounded-lg shadow-xl textured-bg">
-                    <p class="text-center text-secondary-text leading-relaxed">
-                        We have come a long way, up in a Short span of period, only because of the patronage of our customers. We ensure high quality, accuracy and finishing with Hasil products. Innovative Hasil Bathroom fittings in various designs will suit your distinct needs and even more distinctive style. We are able to produce conventional as well as contemporary designs even in lower prices. The raw material for every products as well as their manufacturing process are used after testing, based on methods, norms and quality plans as prescribed by the Indian and international Standards. We are aiming to achieve new designs in the near future where customer prefers our brand over others and is fully satisfied with Hasil products. Our strength lies in their satisfaction.
+            <section id="about" class="my-12 sm:my-20 fade-in-section">
+                <h2 class="font-montserrat text-2xl sm:text-3xl md:text-4xl font-bold text-center mb-6 sm:mb-8 text-white">Our Commitment to Quality</h2>
+                <div class="max-w-3xl mx-auto bg-secondary/50 border border-white/10 p-6 sm:p-8 md:p-10 rounded-xl shadow-xl textured-bg">
+                    <p class="text-center text-secondary-text/90 leading-relaxed text-sm sm:text-base md:text-lg">
+                        We have come a long way, up in a short span of period, only because of the patronage of our customers. We ensure high quality, accuracy, and finishing with Hasil products. Innovative Hasil Bathroom fittings in various designs will suit your distinct needs and even more distinctive style. Every raw material and manufacturing process is tested against Indian and international standards—aiming for complete customer satisfaction.
                     </p>
-                    <div class="flex justify-center space-x-8 mt-6 text-sm text-gray-400">
-                        <span>✓ 100% Factory Tested</span>
-                        <span>✓ Higher Durability</span>
-                        <span>✓ Advanced Water Saving</span>
+                    <div class="flex flex-wrap justify-center gap-2 sm:gap-4 mt-6 sm:mt-8 text-xs sm:text-sm text-accent font-medium">
+                        <span class="bg-primary/60 px-3 sm:px-4 py-1.5 rounded-full border border-white/5">✓ 100% Factory Tested</span>
+                        <span class="bg-primary/60 px-3 sm:px-4 py-1.5 rounded-full border border-white/5">✓ Higher Durability</span>
+                        <span class="bg-primary/60 px-3 sm:px-4 py-1.5 rounded-full border border-white/5">✓ Advanced Water Saving</span>
                     </div>
                 </div>
             </section>
 
             <!-- Series Showcase Section -->
-            <section id="series-showcase" class="my-16 fade-in-section">
-                <h2 class="text-4xl font-bold text-center mb-12 text-white">Our Collections</h2>
-                <div id="series-gallery" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8 max-w-6xl mx-auto">
+            <section id="series-showcase" class="my-12 sm:my-20 fade-in-section">
+                <h2 class="font-montserrat text-2xl sm:text-3xl md:text-4xl font-bold text-center mb-8 sm:mb-12 text-white">Our Collections</h2>
+                <div id="series-gallery" class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3 sm:gap-6 max-w-6xl mx-auto">
                     <!-- Series cards will be injected here -->
                 </div>
             </section>
 
             <!-- Why Choose Us Section -->
-            <section id="why-choose" class="my-16 fade-in-section">
-                <h2 class="text-4xl font-bold text-center mb-12 text-white">Why Choose Hasil</h2>
-                <div class="max-w-6xl mx-auto grid grid-cols-2 md:grid-cols-5 gap-8 text-center">
-                    <div class="bg-secondary p-6 rounded-lg shadow-xl">
-                        <svg class="w-12 h-12 mx-auto mb-4 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
-                        <h3 class="font-semibold text-white">100% Factory Tested</h3>
+            <section id="why-choose" class="my-12 sm:my-20 fade-in-section">
+                <h2 class="font-montserrat text-2xl sm:text-3xl md:text-4xl font-bold text-center mb-8 sm:mb-12 text-white">Why Choose Hasil</h2>
+                <div class="max-w-6xl mx-auto grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3 sm:gap-6 text-center">
+                    <div class="bg-secondary/80 border border-white/5 p-4 sm:p-6 rounded-xl shadow-lg hover:border-accent/40 transition">
+                        <svg class="w-8 h-8 sm:w-10 sm:h-10 mx-auto mb-3 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                        <h3 class="font-semibold text-white text-xs sm:text-sm md:text-base">100% Factory Tested</h3>
                     </div>
-                    <div class="bg-secondary p-6 rounded-lg shadow-xl">
-                        <svg class="w-12 h-12 mx-auto mb-4 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
-                        <h3 class="font-semibold text-white">Higher Durability</h3>
+                    <div class="bg-secondary/80 border border-white/5 p-4 sm:p-6 rounded-xl shadow-lg hover:border-accent/40 transition">
+                        <svg class="w-8 h-8 sm:w-10 sm:h-10 mx-auto mb-3 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg>
+                        <h3 class="font-semibold text-white text-xs sm:text-sm md:text-base">Higher Durability</h3>
                     </div>
-                    <div class="bg-secondary p-6 rounded-lg shadow-xl">
-                        <svg class="w-12 h-12 mx-auto mb-4 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
-                        <h3 class="font-semibold text-white">Operates Smoothly</h3>
+                    <div class="bg-secondary/80 border border-white/5 p-4 sm:p-6 rounded-xl shadow-lg hover:border-accent/40 transition">
+                        <svg class="w-8 h-8 sm:w-10 sm:h-10 mx-auto mb-3 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
+                        <h3 class="font-semibold text-white text-xs sm:text-sm md:text-base">Operates Smoothly</h3>
                     </div>
-                    <div class="bg-secondary p-6 rounded-lg shadow-xl">
-                        <svg class="w-12 h-12 mx-auto mb-4 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.24a2 2 0 00-1.806.547a2 2 0 00-.547 1.806l.477 2.387a6 6 0 00.517 3.86l.158.318a6 6 0 003.86.517l2.387.477a2 2 0 001.806-.547a2 2 0 00.547-1.806l-.477-2.387a6 6 0 00-.517-3.86l-.158-.318a6 6 0 01-.517-3.86l2.387-.477a2 2 0 001.022-.547z"></path></svg>
-                        <h3 class="font-semibold text-white">Water Saving</h3>
+                    <div class="bg-secondary/80 border border-white/5 p-4 sm:p-6 rounded-xl shadow-lg hover:border-accent/40 transition">
+                        <svg class="w-8 h-8 sm:w-10 sm:h-10 mx-auto mb-3 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.24a2 2 0 00-1.806.547a2 2 0 00-.547 1.806l.477 2.387a6 6 0 00.517 3.86l.158.318a6 6 0 003.86.517l2.387.477a2 2 0 001.806-.547a2 2 0 00.547-1.806l-.477-2.387a6 6 0 00-.517-3.86l-.158-.318a6 6 0 01-.517-3.86l2.387-.477a2 2 0 001.022-.547z"></path></svg>
+                        <h3 class="font-semibold text-white text-xs sm:text-sm md:text-base">Water Saving</h3>
                     </div>
-                    <div class="bg-secondary p-6 rounded-lg shadow-xl">
-                        <svg class="w-12 h-12 mx-auto mb-4 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
-                        <h3 class="font-semibold text-white">Higher Longevity</h3>
-                    </div>
-                </div>
-            </section>
-
-             <!-- Testimonials Section -->
-            <section class="my-16 fade-in-section">
-                <h2 class="text-4xl font-bold text-center mb-12 text-white">What Our Clients Say</h2>
-                <div class="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8">
-                    <div class="bg-button p-8 rounded-lg shadow-xl textured-bg">
-                        <p class="text-secondary-text italic mb-4">"The quality and finish of the Artic series faucets are exceptional. Our customers are always impressed. Hasil is our go-to for all high-end projects."</p>
-                        <p class="font-bold text-highlight text-right">- Kumar Associates, Architects</p>
-                    </div>
-                    <div class="bg-button p-8 rounded-lg shadow-xl textured-bg">
-                        <p class="text-secondary-text italic mb-4">"Durability is key for our hotel installations, and Hasil products have proven to be incredibly reliable. The modern designs are a huge plus."</p>
-                        <p class="font-bold text-highlight text-right">- Menon Builders</p>
+                    <div class="bg-secondary/80 border border-white/5 p-4 sm:p-6 rounded-xl shadow-lg hover:border-accent/40 transition col-span-2 sm:col-span-1">
+                        <svg class="w-8 h-8 sm:w-10 sm:h-10 mx-auto mb-3 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                        <h3 class="font-semibold text-white text-xs sm:text-sm md:text-base">Higher Longevity</h3>
                     </div>
                 </div>
             </section>
 
+            <!-- Testimonials Section -->
+            <section class="my-12 sm:my-20 fade-in-section">
+                <h2 class="font-montserrat text-2xl sm:text-3xl md:text-4xl font-bold text-center mb-8 sm:mb-12 text-white">What Our Clients Say</h2>
+                <div class="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-8">
+                    <div class="bg-secondary/50 border border-white/10 p-6 sm:p-8 rounded-xl shadow-xl textured-bg">
+                        <p class="text-secondary-text/90 italic mb-4 leading-relaxed text-sm sm:text-base">"The quality and finish of the Artic series faucets are exceptional. Our customers are always impressed. Hasil is our go-to for all high-end projects."</p>
+                        <p class="font-bold text-highlight text-right text-sm sm:text-base">- Kumar Associates, Architects</p>
+                    </div>
+                    <div class="bg-secondary/50 border border-white/10 p-6 sm:p-8 rounded-xl shadow-xl textured-bg">
+                        <p class="text-secondary-text/90 italic mb-4 leading-relaxed text-sm sm:text-base">"Durability is key for our hotel installations, and Hasil products have proven to be incredibly reliable. The modern designs are a huge plus."</p>
+                        <p class="font-bold text-highlight text-right text-sm sm:text-base">- Menon Builders</p>
+                    </div>
+                </div>
+            </section>
         </main>
     </div>
 
     <!-- Products Page View -->
-    <div id="products-view" class="hidden">
-        <main class="container mx-auto px-6 lg:px-16 py-12">
-            <button id="back-to-home" class="mb-8 bg-button text-white font-semibold py-2 px-4 rounded-lg hover:opacity-80 transition duration-300">
+    <div id="products-view" class="hidden w-full">
+        <main class="container mx-auto px-4 sm:px-6 lg:px-16 py-6 sm:py-8">
+            <button id="back-to-home" class="mb-4 sm:mb-6 inline-flex items-center gap-2 bg-secondary border border-white/10 text-white font-semibold py-2 px-4 rounded-lg hover:bg-white/10 transition duration-300 text-xs sm:text-sm">
                 &larr; Back to Home
             </button>
             
-            <!-- Search -->
-            <div class="mb-12 bg-secondary p-6 rounded-lg sticky top-[80px] z-40">
-                <input type="search" id="product-search" placeholder="Search by name or model..." class="w-full bg-button text-white px-4 py-2 rounded-lg border border-gray-700 focus:ring-accent focus:border-accent">
+            <!-- Search & Series Filter -->
+            <div class="mb-8 bg-secondary/95 backdrop-blur-md p-3 sm:p-5 rounded-xl border border-white/10 sticky top-[56px] sm:top-[68px] z-40 shadow-xl space-y-3">
+                <input type="search" id="product-search" placeholder="Search by name or model (e.g. AC7552, Pillar Cock)..." class="w-full bg-primary text-white px-3 sm:px-4 py-2.5 sm:py-3 rounded-lg border border-white/15 focus:outline-none focus:ring-2 focus:ring-accent focus:border-transparent placeholder-gray-500 text-sm">
+                <div id="series-filters" class="flex gap-2 overflow-x-auto no-scrollbar pb-1">
+                    <!-- Filter pills injected here -->
+                </div>
+            </div>
+
+            <div id="no-results" class="hidden text-center py-16">
+                <p class="text-lg sm:text-xl text-gray-400">No matching products found.</p>
             </div>
 
             <div id="product-list-container">
@@ -189,38 +218,48 @@
     </div>
 
     <!-- Footer -->
-    <footer id="contact" class="bg-secondary">
-        <div class="container mx-auto px-6 py-16 text-center">
-            <h3 class="text-3xl font-bold text-white mb-6">Get In Touch</h3>
-            <p class="text-secondary-text mb-8 max-w-lg mx-auto">For inquiries, dealership opportunities, or custom orders, please send us a message.</p>
-            <form class="max-w-xl mx-auto">
-                <div class="flex flex-col md:flex-row gap-4 mb-4">
-                    <input type="text" placeholder="Your Name" class="w-full bg-button text-white px-4 py-2 rounded-md border border-gray-700 focus:ring-accent focus:border-accent">
-                    <input type="email" placeholder="Your Email" class="w-full bg-button text-white px-4 py-2 rounded-md border border-gray-700 focus:ring-accent focus:border-accent">
+    <footer id="contact" class="bg-secondary border-t border-white/10 w-full">
+        <div class="container mx-auto px-4 sm:px-6 py-12 sm:py-16 text-center">
+            <h3 class="font-montserrat text-2xl sm:text-3xl font-bold text-white mb-3 sm:mb-4">Get In Touch</h3>
+            <p class="text-secondary-text/80 mb-6 sm:mb-8 max-w-lg mx-auto text-sm sm:text-base">For inquiries, dealership opportunities, or custom orders, send us a message directly via WhatsApp.</p>
+            <form id="contact-form" class="max-w-xl mx-auto">
+                <div class="flex flex-col md:flex-row gap-3 sm:gap-4 mb-3 sm:mb-4">
+                    <input type="text" id="contact-name" required placeholder="Your Name" class="w-full bg-primary text-white px-4 py-2.5 sm:py-3 rounded-lg border border-white/15 focus:outline-none focus:ring-2 focus:ring-accent text-sm">
+                    <input type="email" id="contact-email" required placeholder="Your Email" class="w-full bg-primary text-white px-4 py-2.5 sm:py-3 rounded-lg border border-white/15 focus:outline-none focus:ring-2 focus:ring-accent text-sm">
                 </div>
-                <textarea placeholder="Your Message" rows="4" class="w-full bg-button text-white px-4 py-2 rounded-md border border-gray-700 focus:ring-accent focus:border-accent mb-4"></textarea>
-                <button type="submit" class="bg-button text-secondary-text font-bold py-3 px-8 rounded-full hover:opacity-80 transition duration-300 shadow-lg">Send Message</button>
+                <textarea id="contact-message" required placeholder="Your Message" rows="4" class="w-full bg-primary text-white px-4 py-2.5 sm:py-3 rounded-lg border border-white/15 focus:outline-none focus:ring-2 focus:ring-accent mb-5 text-sm"></textarea>
+                <button type="submit" class="bg-accent text-primary font-bold py-3 px-8 rounded-full hover:bg-sky-300 transition duration-300 shadow-glow text-sm sm:text-base">
+                    Send via WhatsApp
+                </button>
             </form>
-            <div class="flex justify-center items-center space-x-4 md:space-x-6 my-8 flex-wrap">
-                 <a href="https://instagram.com/hasilbath" target="_blank" class="text-secondary-text hover:text-white">Instagram</a>
-                 <span class="text-gray-500 hidden md:inline">|</span>
-                 <a href="tel:+917510101122" class="text-secondary-text hover:text-white">+91 75 1010 1122</a>
-                 <span class="text-gray-500 hidden md:inline">|</span>
-                 <a href="mailto:hasilbathexclusive@gmail.com" class="text-secondary-text hover:text-white">hasilbathexclusive@gmail.com</a>
+            <div class="flex justify-center items-center gap-3 sm:gap-6 my-8 flex-wrap text-xs sm:text-sm">
+                <a href="https://instagram.com/hasilbath" target="_blank" class="text-secondary-text hover:text-accent transition">Instagram</a>
+                <span class="text-gray-600 hidden sm:inline">|</span>
+                <a href="tel:+917510101122" class="text-secondary-text hover:text-accent transition">+91 75 1010 1122</a>
+                <span class="text-gray-600 hidden sm:inline">|</span>
+                <a href="mailto:hasilbathexclusive@gmail.com" class="text-secondary-text hover:text-accent transition">hasilbathexclusive@gmail.com</a>
             </div>
-            <p class="text-gray-500 text-sm mt-6">&copy; 2026 Hasil Bath Exclusive. All Rights Reserved.</p>
+            <p class="text-gray-500 text-xs mt-4">&copy; 2026 Hasil Bath Exclusive. All Rights Reserved.</p>
         </div>
     </footer>
 
     <!-- Image Modal -->
-    <div id="image-modal" class="hidden fixed inset-0 bg-black bg-opacity-80 z-50 flex items-center justify-center p-4">
-        <img id="modal-img" src="" alt="Product Image" class="max-h-full max-w-full rounded-lg">
-        <button id="close-modal" class="absolute top-5 right-5 text-white text-4xl font-bold">&times;</button>
+    <div id="image-modal" class="hidden fixed inset-0 bg-black/90 backdrop-blur-sm z-50 flex items-center justify-center p-4">
+        <button id="close-modal" class="absolute top-4 right-5 text-white/80 hover:text-white text-4xl font-bold leading-none">&times;</button>
+        <div class="max-w-md w-full bg-secondary border border-white/10 rounded-2xl overflow-hidden shadow-2xl text-center">
+            <img id="modal-img" src="" alt="Product Image" class="w-full max-h-[60vh] object-contain bg-primary">
+            <div class="p-5 sm:p-6">
+                <h4 id="modal-title" class="font-montserrat text-lg sm:text-xl font-bold text-white mb-1"></h4>
+                <p id="modal-model" class="text-highlight text-xs sm:text-sm font-medium mb-4"></p>
+                <a id="modal-whatsapp" href="#" target="_blank" class="inline-block bg-accent text-primary font-bold py-2.5 px-6 rounded-full hover:bg-sky-300 transition text-xs sm:text-sm">
+                    Inquire on WhatsApp
+                </a>
+            </div>
+        </div>
     </div>
 
     <script>
         document.addEventListener('DOMContentLoaded', () => {
-
             const productData = {
                 "Artic Series": {
                     id: 'artic-series',
@@ -263,7 +302,7 @@
                         { name: 'Wall Mixer Bend', model: 'MG8557', image: 'placeholder.jpg' }
                     ]
                 },
-                 "Spark Series": {
+                "Spark Series": {
                     id: 'spark-series',
                     image: 'covers-3.jpg',
                     products: [
@@ -379,33 +418,72 @@
                 }
             };
 
-            // -- DOM ELEMENTS --
             const homeView = document.getElementById('home-view');
             const productsView = document.getElementById('products-view');
-            const navHome = document.getElementById('nav-home');
-            const navProducts = document.getElementById('nav-products');
-            const navAbout = document.getElementById('nav-about');
-            const navContact = document.getElementById('nav-contact');
-            const backToHomeBtn = document.getElementById('back-to-home');
             const seriesGallery = document.getElementById('series-gallery');
             const productListContainer = document.getElementById('product-list-container');
+            const seriesFilters = document.getElementById('series-filters');
+            const productSearch = document.getElementById('product-search');
+            const noResults = document.getElementById('no-results');
+
             const imageModal = document.getElementById('image-modal');
             const modalImg = document.getElementById('modal-img');
+            const modalTitle = document.getElementById('modal-title');
+            const modalModel = document.getElementById('modal-model');
+            const modalWhatsapp = document.getElementById('modal-whatsapp');
             const closeModal = document.getElementById('close-modal');
-            const productSearch = document.getElementById('product-search');
 
-            // -- FUNCTIONS --
-            const createProductCard = (product, seriesName) => {
-                const imgSrc = product.image && product.image !== 'placeholder.jpg' ? product.image : `https://placehold.co/400x400/0B192C/E2E2B6?text=${encodeURIComponent(product.name)}`;
+            let activeFilter = 'all';
+
+            const createProductCard = (product) => {
+                const fallbackUrl = `https://placehold.co/400x400/0B192C/E2E2B6?text=${encodeURIComponent(product.name)}`;
+                const imgSrc = product.image && product.image !== 'placeholder.jpg' ? product.image : fallbackUrl;
                 return `
-                    <div class="bg-button rounded-lg overflow-hidden shadow-xl flex flex-col product-card" data-name="${product.name.toLowerCase()}" data-model="${product.model.toLowerCase()}">
-                        <img src="${imgSrc}" alt="${product.name}" class="w-full aspect-square object-cover cursor-pointer product-image" data-img-src="${imgSrc}">
-                        <div class="p-4 flex flex-col flex-grow">
-                            <h4 class="font-bold text-white text-lg flex-grow">${product.name}</h4>
-                            <p class="text-gray-400 text-sm mb-3">Model: ${product.model}</p>
+                    <div class="bg-secondary/70 border border-white/10 rounded-xl overflow-hidden shadow-lg flex flex-col product-card group hover:border-accent/50 transition duration-300" data-name="${product.name.toLowerCase()}" data-model="${product.model.toLowerCase()}">
+                        <div class="overflow-hidden bg-primary">
+                            <img src="${imgSrc}" onerror="this.onerror=null;this.src='${fallbackUrl}';this.dataset.imgSrc='${fallbackUrl}';" alt="${product.name}" loading="lazy" class="w-full aspect-square object-cover cursor-pointer product-image group-hover:scale-105 transition-transform duration-300" data-img-src="${imgSrc}" data-title="${product.name}" data-model="${product.model}">
+                        </div>
+                        <div class="p-3 sm:p-4 flex flex-col flex-grow">
+                            <h4 class="font-bold text-white text-xs sm:text-sm md:text-base flex-grow leading-snug">${product.name}</h4>
+                            <p class="text-highlight text-[11px] sm:text-xs mt-1.5 font-medium">Model: ${product.model}</p>
                         </div>
                     </div>
                 `;
+            };
+
+            const filterProducts = () => {
+                const searchTerm = productSearch.value.toLowerCase().trim();
+                let totalVisible = 0;
+
+                document.querySelectorAll('.series-section').forEach(section => {
+                    const seriesId = section.id;
+                    const matchesFilter = activeFilter === 'all' || activeFilter === seriesId;
+                    let visibleInSeries = 0;
+
+                    if (matchesFilter) {
+                        section.querySelectorAll('.product-card').forEach(card => {
+                            const matchesSearch = card.dataset.name.includes(searchTerm) || card.dataset.model.includes(searchTerm);
+                            card.style.display = matchesSearch ? '' : 'none';
+                            if (matchesSearch) visibleInSeries++;
+                        });
+                    }
+
+                    section.style.display = (matchesFilter && visibleInSeries > 0) ? '' : 'none';
+                    totalVisible += visibleInSeries;
+                });
+
+                noResults.classList.toggle('hidden', totalVisible > 0);
+            };
+
+            const setActiveFilterPill = (seriesId) => {
+                activeFilter = seriesId;
+                document.querySelectorAll('.filter-pill').forEach(pill => {
+                    const isActive = pill.dataset.filter === seriesId;
+                    pill.className = `filter-pill whitespace-nowrap px-3.5 py-1.5 rounded-full text-xs sm:text-sm font-semibold transition cursor-pointer ${
+                        isActive ? 'bg-accent text-primary' : 'bg-primary text-secondary-text border border-white/10 hover:border-accent/50'
+                    }`;
+                });
+                filterProducts();
             };
 
             const showHomeView = () => {
@@ -414,84 +492,104 @@
                 window.scrollTo(0, 0);
             };
 
-            const showProductsView = (targetSeriesId = null) => {
+            const showProductsView = (targetSeriesId = 'all') => {
                 homeView.classList.add('hidden');
                 productsView.classList.remove('hidden');
-                if (targetSeriesId) {
-                    setTimeout(() => {
-                        const targetElement = document.getElementById(targetSeriesId);
-                        if (targetElement) {
-                            targetElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                        } else {
-                             window.scrollTo(0, 0);
-                        }
-                    }, 100);
-                } else {
-                    window.scrollTo(0, 0);
-                }
+                setActiveFilterPill(targetSeriesId);
+                window.scrollTo(0, 0);
             };
-            
-            // Populate Pages
+
+            const allPill = document.createElement('button');
+            allPill.textContent = 'All Series';
+            allPill.dataset.filter = 'all';
+            allPill.className = 'filter-pill';
+            allPill.addEventListener('click', () => setActiveFilterPill('all'));
+            seriesFilters.appendChild(allPill);
+
             for (const seriesName in productData) {
                 const series = productData[seriesName];
+                const seriesFallback = `https://placehold.co/400x500/0B192C/E2E2B6?text=${encodeURIComponent(seriesName)}`;
 
                 const seriesCard = document.createElement('a');
                 seriesCard.href = `#${series.id}`;
-                seriesCard.className = 'block bg-button rounded-lg overflow-hidden shadow-xl transform hover:-translate-y-1 transition-transform duration-300';
-                seriesCard.dataset.seriesId = series.id;
-                seriesCard.innerHTML = `<img src="${series.image}" alt="${seriesName}" class="w-full aspect-[4/5] object-cover"><div class="p-4"><h3 class="font-bold text-white text-xl text-center">${seriesName}</h3></div>`;
-                seriesCard.addEventListener('click', (e) => { e.preventDefault(); showProductsView(series.id); });
+                seriesCard.className = 'block bg-secondary/70 border border-white/10 rounded-xl overflow-hidden shadow-xl group hover:border-accent/50 hover:-translate-y-1 transition-all duration-300';
+                seriesCard.innerHTML = `
+                    <div class="overflow-hidden">
+                        <img src="${series.image}" onerror="this.onerror=null;this.src='${seriesFallback}';" alt="${seriesName}" class="w-full aspect-[4/5] object-cover group-hover:scale-105 transition-transform duration-500">
+                    </div>
+                    <div class="p-3 sm:p-4">
+                        <h3 class="font-montserrat font-bold text-white text-sm sm:text-base md:text-lg text-center">${seriesName}</h3>
+                    </div>`;
+                seriesCard.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    showProductsView(series.id);
+                });
                 seriesGallery.appendChild(seriesCard);
+
+                const pill = document.createElement('button');
+                pill.textContent = seriesName.replace(' Series', '');
+                pill.dataset.filter = series.id;
+                pill.className = 'filter-pill';
+                pill.addEventListener('click', () => setActiveFilterPill(series.id));
+                seriesFilters.appendChild(pill);
 
                 const section = document.createElement('section');
                 section.id = series.id;
-                section.className = 'mb-16';
-                let productsHTML = series.products.map(product => createProductCard(product, seriesName)).join('');
-                section.innerHTML = `<h2 class="text-3xl font-bold text-white mb-8 border-b-2 border-highlight pb-2">${seriesName}</h2><div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-8">${productsHTML}</div>`;
+                section.className = 'mb-10 sm:mb-14 series-section';
+                const productsHTML = series.products.map(createProductCard).join('');
+                section.innerHTML = `
+                    <h2 class="font-montserrat text-xl sm:text-2xl md:text-3xl font-bold text-white mb-4 sm:mb-6 border-b border-highlight/40 pb-2 sm:pb-3">${seriesName}</h2>
+                    <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-3 sm:gap-6">${productsHTML}</div>
+                `;
                 productListContainer.appendChild(section);
             }
-            
-            // -- EVENT LISTENERS --
-            navHome.addEventListener('click', (e) => { e.preventDefault(); showHomeView(); });
-            navProducts.addEventListener('click', (e) => { e.preventDefault(); showProductsView(); });
-            navAbout.addEventListener('click', (e) => { e.preventDefault(); showHomeView(); document.getElementById('about').scrollIntoView({behavior: 'smooth'}); });
-            navContact.addEventListener('click', (e) => { e.preventDefault(); showHomeView(); document.getElementById('contact').scrollIntoView({behavior: 'smooth'}); });
-            backToHomeBtn.addEventListener('click', showHomeView);
 
-            // Search Event Listener
-            productSearch.addEventListener('input', (e) => {
-                const searchTerm = e.target.value.toLowerCase();
-                document.querySelectorAll('.product-card').forEach(card => {
-                    const name = card.dataset.name;
-                    const model = card.dataset.model;
-                    card.style.display = (name.includes(searchTerm) || model.includes(searchTerm)) ? '' : 'none';
-                });
+            document.getElementById('nav-home').addEventListener('click', (e) => { e.preventDefault(); showHomeView(); });
+            document.getElementById('nav-products').addEventListener('click', (e) => { e.preventDefault(); showProductsView('all'); });
+            document.getElementById('hero-all-products').addEventListener('click', () => showProductsView('all'));
+            document.getElementById('back-to-home').addEventListener('click', showHomeView);
+            document.getElementById('nav-about').addEventListener('click', (e) => {
+                e.preventDefault();
+                showHomeView();
+                setTimeout(() => document.getElementById('about').scrollIntoView({ behavior: 'smooth' }), 50);
             });
-            
-            // Image Modal
-            productListContainer.addEventListener('click', e => {
+            document.getElementById('nav-contact').addEventListener('click', (e) => {
+                e.preventDefault();
+                document.getElementById('contact').scrollIntoView({ behavior: 'smooth' });
+            });
+
+            productSearch.addEventListener('input', filterProducts);
+
+            productListContainer.addEventListener('click', (e) => {
                 if (e.target.classList.contains('product-image')) {
-                    modalImg.src = e.target.dataset.imgSrc;
+                    const { imgSrc, title, model } = e.target.dataset;
+                    modalImg.src = imgSrc;
+                    modalTitle.textContent = title;
+                    modalModel.textContent = `Model: ${model}`;
+                    const waText = encodeURIComponent(`Hi Hasil Bath Exclusive, I would like to inquire about ${title} (Model: ${model}).`);
+                    modalWhatsapp.href = `https://wa.me/917510101122?text=${waText}`;
                     imageModal.classList.remove('hidden');
                 }
             });
             closeModal.addEventListener('click', () => imageModal.classList.add('hidden'));
             imageModal.addEventListener('click', (e) => { if (e.target === imageModal) imageModal.classList.add('hidden'); });
-            
-            // Animations
+
+            document.getElementById('contact-form').addEventListener('submit', (e) => {
+                e.preventDefault();
+                const name = document.getElementById('contact-name').value;
+                const email = document.getElementById('contact-email').value;
+                const msg = document.getElementById('contact-message').value;
+                const waText = encodeURIComponent(`Name: ${name}\nEmail: ${email}\nMessage: ${msg}`);
+                window.open(`https://wa.me/917510101122?text=${waText}`, '_blank');
+            });
+
             const observer = new IntersectionObserver((entries) => {
                 entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add('is-visible');
-                    }
+                    if (entry.isIntersecting) entry.target.classList.add('is-visible');
                 });
             }, { threshold: 0.1 });
-            document.querySelectorAll('.fade-in-section').forEach(section => {
-                observer.observe(section);
-            });
+            document.querySelectorAll('.fade-in-section').forEach(section => observer.observe(section));
         });
     </script>
 </body>
 </html>
-
-
